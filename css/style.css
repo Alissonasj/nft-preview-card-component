@@ -18,7 +18,7 @@ body {
 .card {
     max-width: 25rem;
     grid-area: content;
-    grid-row: 1;    
+    grid-row: 1;
     justify-self: center;
     background-color: #15263f;
     border-radius: 1rem;
@@ -27,17 +27,46 @@ body {
 .card section {
     padding: 1.5rem;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     gap: 1rem;
 }
 
-.card section > img:first-child {
-    border-radius: .5rem;
+.card section div:first-child {
+    position: relative;
+    display: inline-block;
+}
+
+.card section > div:first-child::before {
+    content: '\1F441';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 6rem;
+    border-radius: 0.5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 4px);
+    background-color: #00a1bb;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.card section > div:first-child:hover::before {
+    opacity: 0.4;
+}
+
+.card section > div:first-child img {
+    border-radius: 0.5rem;
+    cursor: pointer;
 }
 
 .card section h2 {
     font-size: 1.5rem;
     font-weight: 700;
+    cursor: pointer;
+    transition: all 0.5s;
 }
 
 .card section p {
@@ -60,10 +89,10 @@ body {
 }
 
 .card__container-a > div:first-child::before {
-   content: '♦';
-   color: #2bc8c9;
-   font-size: 1.5rem;
-   margin-right: .5rem;
+    content: '♦';
+    color: #2bc8c9;
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
 }
 
 .card__container-a > div:nth-child(2) {
@@ -72,7 +101,7 @@ body {
 
 .card__container-a > div:nth-child(2)::before {
     content: '🕐';
-    margin-right: .5rem;
+    margin-right: 0.5rem;
 }
 
 .card section .profile {
@@ -90,6 +119,12 @@ body {
 .profile p strong {
     font-weight: bold;
     color: white;
+    transition: all 0.5s;
+}
+
+.card section h2:hover,
+.profile p strong:hover {
+    color: #2bc8c9;
 }
 
 .footer {
@@ -97,13 +132,13 @@ body {
     grid-row: 2;
     justify-self: center;
     padding: 1rem 0;
-    font-size: .8rem;
+    font-size: 0.8rem;
 }
 
 .footer a {
     color: #2bc8c9;
 }
 
-.footer a strong{
+.footer a strong {
     font-weight: 700;
 }
